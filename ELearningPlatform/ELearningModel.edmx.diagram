@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b1870d4bba16447cb3ec4181a17a33ca" Name="Diagram1">
+        <EntityTypeShape EntityType="ELearningModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.Administrador" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.AgendaMaestro" Width="1.5" PointX="9.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.Alumno" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.AspNetUsers" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.Configuraciones" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.HistorialCompraHoras" Width="1.5" PointX="9.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.HistorialReporteHoras" Width="1.5" PointX="12.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.Maestro" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.ReglasPrecios" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningModel.SolicitudRegistroMaestro" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="ELearningModel.fk_Administrador_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_AgendaM_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_AgendaM_Maestro" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_Alumno_Maestro" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_Alumno_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_HCH_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_HRH_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_Maestro_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.fk_HRH_Maestro" ManuallyRouted="false" />
+        <AssociationConnector Association="ELearningModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
