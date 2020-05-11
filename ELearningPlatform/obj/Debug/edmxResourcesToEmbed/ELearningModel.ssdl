@@ -20,6 +20,7 @@
     <Property Name="Pais" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ZonaHoraria" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="idAdministrador" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Fotografia" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="AgendaMaestro">
     <Key>
@@ -45,6 +46,7 @@
     <Property Name="ZonaHoraria" Type="varchar" MaxLength="255" />
     <Property Name="idAlumno" Type="nvarchar" MaxLength="128" />
     <Property Name="idMaestroAsignado" Type="int" />
+    <Property Name="Fotografia" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
@@ -98,6 +100,14 @@
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
+  <EntityType Name="Configuraciones">
+    <Key>
+      <PropertyRef Name="idConfiguracion" />
+    </Key>
+    <Property Name="idConfiguracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Valor" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
   <EntityType Name="HistorialCompraHoras">
     <Key>
       <PropertyRef Name="idCompra" />
@@ -130,9 +140,9 @@
     <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Pais" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Ciudad" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="HorasCompradas" Type="int" />
     <Property Name="ZonaHoraria" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="idMaestro" Type="nvarchar" MaxLength="128" />
+    <Property Name="Fotografia" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="ReglasPrecios">
     <Key>
@@ -144,6 +154,7 @@
     <Property Name="CantidadFinalHoras" Type="int" Nullable="false" />
     <Property Name="FechaInicio" Type="datetime" Nullable="false" />
     <Property Name="FechaFinal" Type="datetime" />
+    <Property Name="PrecioHora" Type="decimal" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="SolicitudRegistroMaestro">
     <Key>
@@ -158,6 +169,16 @@
     <Property Name="EsNueva" Type="bit" Nullable="false" />
     <Property Name="TelCodigoPais" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="fk_Administrador_Users">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
@@ -333,11 +354,13 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Configuraciones" EntityType="Self.Configuraciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HistorialCompraHoras" EntityType="Self.HistorialCompraHoras" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HistorialReporteHoras" EntityType="Self.HistorialReporteHoras" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Maestro" EntityType="Self.Maestro" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ReglasPrecios" EntityType="Self.ReglasPrecios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SolicitudRegistroMaestro" EntityType="Self.SolicitudRegistroMaestro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_Administrador_Users" Association="Self.fk_Administrador_Users">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Administrador" EntitySet="Administrador" />

@@ -39,5 +39,6 @@ namespace ELearningPlatform
         public virtual DbSet<Maestro> Maestro { get; set; }
         public virtual DbSet<ReglasPrecios> ReglasPrecios { get; set; }
         public virtual DbSet<SolicitudRegistroMaestro> SolicitudRegistroMaestro { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

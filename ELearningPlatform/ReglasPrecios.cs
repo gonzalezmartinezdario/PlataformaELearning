@@ -20,5 +20,6 @@ namespace ELearningPlatform
         public int CantidadFinalHoras { get; set; }
         public System.DateTime FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFinal { get; set; }
+        public Nullable<decimal> PrecioHora { get; set; }
     }
 }

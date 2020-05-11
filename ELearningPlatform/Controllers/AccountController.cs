@@ -9,7 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ELearningPlatform.Models;
-
+using ELearningPlatform.Servicios;
+using ELearningPlatform.ViewModels;
 namespace ELearningPlatform.Controllers
 {
     [Authorize]
@@ -151,7 +152,7 @@ namespace ELearningPlatform.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View("RegistroAlumno");
         }
 
         //
@@ -159,14 +160,21 @@ namespace ELearningPlatform.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(/*RegisterViewModel*/ UsuarioViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Hometown = model.Hometown };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Hometown = model.Ciudad };
+                var result = await UserManager.CreateAsync(user, model.Contrasena);
                 if (result.Succeeded)
                 {
+                    //Mi codigo---
+                    ServicioRegistrarUsuarios registrarUsuarios = new ServicioRegistrarUsuarios();
+                    registrarUsuarios.RegistrarUsuarios(model);
+                    var currentUser = UserManager.FindByName(user.UserName);
+                    var roleResult = UserManager.AddToRole(currentUser.Id, model.TipoUsuario.ToUpper());
+                    //Mi codigo ---
+
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -175,13 +183,30 @@ namespace ELearningPlatform.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
 
+            //Mi Codigo
+            string redireccionar = string.Empty;
+            switch(model.TipoUsuario.ToUpper())
+            {
+                case "ADMINISTRADOR":
+                    redireccionar = "RegistroAdministrador";
+                    break;
+                case "ALUMNO":
+                    redireccionar = "RegistroAlumno";
+                    break;
+                case "MAESTRO":
+                    redireccionar = "RegistroMaestro";
+                    break;
+            }
+            //Mi Codigo
+            
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View(redireccionar, model);
         }
 
         //

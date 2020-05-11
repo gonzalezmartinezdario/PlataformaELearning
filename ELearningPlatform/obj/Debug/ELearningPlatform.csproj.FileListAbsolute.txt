@@ -107,6 +107,6 @@ c:\users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearning
 c:\users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearningPlatform\bin\es\System.Web.WebPages.resources.dll
 c:\users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearningPlatform\bin\es\System.Web.WebPages.Deployment.resources.dll
 c:\users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearningPlatform\bin\es\System.Web.WebPages.Razor.resources.dll
-c:\users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearningPlatform\obj\Debug\ELearningPlatform.csprojResolveAssemblyReference.cache
 c:\users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearningPlatform\obj\Debug\ELearningPlatform.dll
 c:\users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearningPlatform\obj\Debug\ELearningPlatform.pdb
+C:\Users\gonza\documents\visual studio 2015\Projects\ELearningPlatform\ELearningPlatform\obj\Debug\ELearningPlatform.csprojResolveAssemblyReference.cache

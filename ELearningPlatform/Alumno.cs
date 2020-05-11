@@ -31,6 +31,7 @@ namespace ELearningPlatform
         public string ZonaHoraria { get; set; }
         public string idAlumno { get; set; }
         public Nullable<int> idMaestroAsignado { get; set; }
+        public string Fotografia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AgendaMaestro> AgendaMaestro { get; set; }

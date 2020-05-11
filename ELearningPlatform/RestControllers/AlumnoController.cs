@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-
+using ELearningPlatform.Models;
 namespace ELearningPlatform.RestControllers
 {
     public class AlumnoController : ApiController
     {
         ELearningEntities context;
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
-        //COnstructor
         AlumnoController()
         {
             context = new ELearningEntities();
             context.Configuration.ProxyCreationEnabled = false;
-        }
+        }            
 
         // GET api/<controller>
         public IEnumerable<Alumno> Get()
@@ -39,10 +37,8 @@ namespace ELearningPlatform.RestControllers
         // POST api/<controller>
         public void Post([FromBody]Alumno value)
         {
-            //ELearningEntities context = new ELearningEntities();
-
-                context.Alumno.Add(value);
-                context.SaveChanges();                        
+            context.Alumno.Add(value);
+            context.SaveChanges();                        
         }
 
         // PUT api/<controller>/5
@@ -61,6 +57,7 @@ namespace ELearningPlatform.RestControllers
             formerAlumno.idMaestroAsignado = value.idMaestroAsignado;
             formerAlumno.Pais = value.Pais;
             formerAlumno.ZonaHoraria = value.ZonaHoraria;
+            formerAlumno.Fotografia = value.ZonaHoraria;
 
             context.SaveChanges();
         }

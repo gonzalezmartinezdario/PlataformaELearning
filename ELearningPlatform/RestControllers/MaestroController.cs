@@ -56,6 +56,7 @@ namespace ELearningPlatform.RestControllers
             formerMaestro.Nombre = value.Nombre;
             formerMaestro.Pais = value.Pais;
             formerMaestro.ZonaHoraria = value.ZonaHoraria;
+            formerMaestro.Fotografia = value.Fotografia;
 
             context.SaveChanges();
         }

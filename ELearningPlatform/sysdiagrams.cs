@@ -12,16 +12,12 @@ namespace ELearningPlatform
     using System;
     using System.Collections.Generic;
     
-    public partial class Administrador
+    public partial class sysdiagrams
     {
-        public int idAdmin { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Pais { get; set; }
-        public string ZonaHoraria { get; set; }
-        public string idAdministrador { get; set; }
-        public string Fotografia { get; set; }
-    
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
